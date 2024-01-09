@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { DuacodersModule } from './duacoders/duacoders.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true, // Carga las entidades que vamos definiendo
       synchronize: (process.env.STAGE === 'dev') ? true : false, // Sincronza las tablas según detecta cambios en las entidades
     }),
+    DuacodersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
